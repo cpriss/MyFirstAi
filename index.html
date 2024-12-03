@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mother and Daughter Prom Scene</title>
+  <script src="https://cdn.jsdelivr.net/gh/Perchance/engine.js"></script>
+</head>
+<body>
+  <h1>Mother and Daughter Prom Scene</h1>
+  <p>Click the button to generate a heartwarming prompt and image.</p>
+
+  <!-- Output container -->
+  <div id="output-container">
+    <p id="prompt-text"></p>
+    <div id="image-container"></div>
+  </div>
+
+  <!-- Button to randomize -->
+  <button onclick="generateScene()">Generate Scene</button>
+
+  <script>
+    // Define the Perchance data
+    const data = {
+      mother: ["a loving mother", "a proud mother", "a supportive mother"],
+      daughter: ["a nervous daughter", "an excited daughter", "a radiant daughter"],
+      scene: [
+        "in their cozy living room",
+        "in a beautifully decorated bedroom",
+        "by a vanity table with soft lights",
+        "near a large mirror reflecting the moment"
+      ],
+      action: [
+        "helping her daughter zip up the dress",
+        "adjusting her daughter's hair with care",
+        "placing a corsage on her daughter's wrist",
+        "sharing a tender hug before prom"
+      ],
+      generatePrompt() {
+        const mother = data.mother[Math.floor(Math.random() * data.mother.length)];
+        const daughter = data.daughter[Math.floor(Math.random() * data.daughter.length)];
+        const scene = data.scene[Math.floor(Math.random() * data.scene.length)];
+        const action = data.action[Math.floor(Math.random() * data.action.length)];
+        return `A detailed, heartwarming painting of ${mother} helping ${daughter} get ready for prom, ${action}, ${scene}. The scene is filled with emotion and soft lighting, capturing their special bond.`;
+      }
+    };
+
+    // Function to generate the scene
+    function generateScene() {
+      const prompt = data.generatePrompt();
+      document.getElementById("prompt-text").textContent = prompt;
+
+      // Simulating image generation (requires server integration for actual image generation)
+      document.getElementById("image-container").innerHTML = `
+        <img src="https://via.placeholder.com/400x300?text=Generated+Image" alt="Generated Image" style="border: 2px solid #ccc; margin-top: 10px;">
+        <p>${prompt}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
